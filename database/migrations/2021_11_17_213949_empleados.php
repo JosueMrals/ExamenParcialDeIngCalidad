@@ -1,3 +1,5 @@
+<!--Esta es la migracion -->
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -13,10 +15,10 @@ class Empleados extends Migration
      */
     public function up()
     {
-        Schema::create('empleado', function (Blueprint $table) {
+        Schema::create('empleados', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('nombre', 16)->unique();
+            $table->string('nombre', 50);
             $table->string('apellido', 50);
 
             $table->timestamps();

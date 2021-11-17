@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use App\Models\Empleado;
 
 class ExampleTest extends TestCase
 {
@@ -12,10 +13,14 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    
+        public function test_empleado()
     {
-        $response = $this->get('/');
+        $empleados = Empleado::all();
 
-        $response->assertStatus(200);
+        $view = $this->view('empleados.index', ['empleados' =>  $empleados]);
+
+        $view->assertSee('Josue');
     }
+    
 }
