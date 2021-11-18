@@ -14,13 +14,11 @@ class ExampleTest extends TestCase
      * @return void
      */
     
-        public function test_empleado()
+    public function test_empleado()
     {
-        $empleados = Empleado::all();
+        $response = $this->get('/empleados');
 
-        $view = $this->view('empleados.index', ['empleados' =>  $empleados]);
-
-        $view->assertSee('Josue');
+        $response->assertStatus(200);
     }
     
 }
